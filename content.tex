@@ -6,8 +6,15 @@
 \label{ch:Abstract}
 %% ==============================
 
-With the ever increasing amount of data to be rendered for a single given scene, experimenting with new approaches for handling and structuring that data becomes more and more important. This paper covers the approach to enhance response times and quality using out of core processes. \\
-I will discuss different strategies used to load necessary data chunks into working memory taking into account its finiteness. Also, this paper will give an overview of the possibility to use volumetric texture units called ``Voxels'' instead of regular texels and the advantages and challenges that come with it. Lastly, the topic will be further explored using the examples \cite{Crassin:2009:GRS:1507149.1507152} and \cite{van2009id}.
+With the ever increasing amount of data to be rendered for a single given scene, experimenting with new approaches for handling and structuring that data becomes more and more important. This paper covers the approach to enhance response times and quality using out-of-core techniques. 
+
+\\
+
+With the help of out-of-core techniques, it is possible to achieve real-time rendering performance on current-generation graphics cards by overcoming limits posed by the graphics cards' internal memory \cite{Crassin:2009:GRS:1507149.1507152}. Thus, this topic is essential for everyone hoping to achieve such performance for scenes that cannot be efficiently rendered using conventional methods.
+
+\\
+
+I will discuss different strategies used to load necessary data chunks into working memory taking into account its finiteness using intelligent data streaming. These include visibility culling and virtual texturing. Also, this paper will give an overview of the possibility to use volumetric texture units called ``Voxels'' instead of regular texels and the advantages and challenges that come with it. Lastly, the topic will be further explored using the examples \cite{Crassin:2009:GRS:1507149.1507152} and \cite{van2009id}.
 %
 
 

@@ -1,0 +1,49 @@
+\begin{thebibliography}{CNLE09}
+  \providebibliographyfont{name}{}%
+  \providebibliographyfont{lastname}{}%
+  \providebibliographyfont{title}{\emph}%
+  \providebibliographyfont{jtitle}{\btxtitlefont}%
+  \providebibliographyfont{etal}{\emph}%
+  \providebibliographyfont{journal}{}%
+  \providebibliographyfont{volume}{}%
+  \providebibliographyfont{ISBN}{\MakeUppercase}%
+  \providebibliographyfont{ISSN}{\MakeUppercase}%
+  \providebibliographyfont{url}{\url}%
+  \providebibliographyfont{numeral}{}%
+  \expandafter\btxselectlanguage\expandafter {\btxfallbacklanguage}
+
+\expandafter\btxselectlanguage\expandafter {\btxfallbacklanguage}
+\bibitem [{BKR09}]{becker2008a}
+\btxnamefont {Steffen \btxlastnamefont {Becker}}, \btxnamefont {Heiko
+  \btxlastnamefont {Koziolek}}\btxandcomma {} \btxandlong {}\ \btxnamefont
+  {Ralf \btxlastnamefont {Reussner}}\btxauthorcolon\ \btxjtitlefont
+  {\btxifchangecase {{T}he {P}alladio component model for model-driven
+  performance prediction}{{T}he {P}alladio component model for model-driven
+  performance prediction}}.
+\newblock 82:3--22, 2009.
+\newblock {\latintext
+  \btxurlfont{http://dx.doi.org/10.1016/j.jss.2008.03.066}}.
+
+\bibitem [{CNLE09}]{Crassin:2009:GRS:1507149.1507152}
+\btxnamefont {Cyril \btxlastnamefont {Crassin}}, \btxnamefont {Fabrice
+  \btxlastnamefont {Neyret}}, \btxnamefont {Sylvain \btxlastnamefont
+  {Lefebvre}}\btxandcomma {} \btxandlong {}\ \btxnamefont {Elmar
+  \btxlastnamefont {Eisemann}}\btxauthorcolon\ \btxtitlefont {\btxifchangecase
+  {Gigavoxels: Ray-guided streaming for efficient and detailed voxel
+  rendering}{GigaVoxels: Ray-guided Streaming for Efficient and Detailed Voxel
+  Rendering}}.
+\newblock \Btxinlong {}\ \btxtitlefont {Proceedings of the 2009 Symposium on
+  Interactive 3D Graphics and Games}, I3D '09, \btxpageslong {}\ 15--22, New
+  York, NY, USA, 2009. \btxpublisherfont {ACM}\ifbtxprintISBN {,
+  \mbox{\btxISBN~\btxISBNfont {978-1-60558-429-4}}}.
+\newblock {\latintext \btxurlfont{http://doi.acm.org/10.1145/1507149.1507152}}.
+
+\bibitem [{VW09}]{van2009id}
+\btxnamefont {JMP \btxlastnamefont {Van~Waveren}}\btxauthorcolon\
+  \btxjtitlefont {\btxifchangecase {id tech 5 challenges-from texture
+  virtualization to massive parallelization}{id tech 5 challenges-from texture
+  virtualization to massive parallelization}}.
+\newblock \btxjournalfont {Talk in Beyond Programmable Shading course,
+  SIGGRAPH}, 9:5, 2009.
+
+\end{thebibliography}

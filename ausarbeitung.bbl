@@ -1,4 +1,5 @@
-\begin{thebibliography}{CNLE09}
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{CGG{\etalchar{+}}03}
   \providebibliographyfont{name}{}%
   \providebibliographyfont{lastname}{}%
   \providebibliographyfont{title}{\emph}%
@@ -13,16 +14,23 @@
   \expandafter\btxselectlanguage\expandafter {\btxfallbacklanguage}
 
 \expandafter\btxselectlanguage\expandafter {\btxfallbacklanguage}
-\bibitem [{BKR09}]{becker2008a}
-\btxnamefont {Steffen \btxlastnamefont {Becker}}, \btxnamefont {Heiko
-  \btxlastnamefont {Koziolek}}\btxandcomma {} \btxandlong {}\ \btxnamefont
-  {Ralf \btxlastnamefont {Reussner}}\btxauthorcolon\ \btxjtitlefont
-  {\btxifchangecase {{T}he {P}alladio component model for model-driven
-  performance prediction}{{T}he {P}alladio component model for model-driven
-  performance prediction}}.
-\newblock 82:3--22, 2009.
-\newblock {\latintext
-  \btxurlfont{http://dx.doi.org/10.1016/j.jss.2008.03.066}}.
+\bibitem [{CGG{\etalchar{+}}03}]{10.1007/978-3-540-40014-1_3}
+\btxnamefont {Paolo \btxlastnamefont {Cignoni}}, \btxnamefont {Fabio
+  \btxlastnamefont {Ganovelli}}, \btxnamefont {Enrico \btxlastnamefont
+  {Gobbetti}}, \btxnamefont {Fabio \btxlastnamefont {Marton}}, \btxnamefont
+  {Federico \btxlastnamefont {Ponchio}}\btxandcomma {} \btxandlong {}\
+  \btxnamefont {Roberto \btxlastnamefont {Scopigno}}\btxauthorcolon\
+  \btxtitlefont {\btxifchangecase {Interactive out-of-core visualisation of
+  very large landscapes on commodity graphics platform}{Interactive Out-of-Core
+  Visualisation of Very Large Landscapes on Commodity Graphics Platform}}.
+\newblock \Btxinlong {}\ \btxnamefont {Olivier \btxlastnamefont {Balet}},
+  \btxnamefont {G{\'e}rard \btxlastnamefont {Subsol}}\btxandcomma {}
+  \btxandlong {}\ \btxnamefont {Patrice \btxlastnamefont {Torguet}}\
+  (\btxeditorslong {}): \btxtitlefont {Virtual Storytelling. Using Virtual
+  RealityTechnologies for Storytelling}, \btxpageslong {}\ 21--29, Berlin,
+  Heidelberg, 2003. \btxpublisherfont {Springer Berlin
+  Heidelberg}\ifbtxprintISBN {, \mbox{\btxISBN~\btxISBNfont
+  {978-3-540-40014-1}}}.
 
 \bibitem [{CNLE09}]{Crassin:2009:GRS:1507149.1507152}
 \btxnamefont {Cyril \btxlastnamefont {Crassin}}, \btxnamefont {Fabrice

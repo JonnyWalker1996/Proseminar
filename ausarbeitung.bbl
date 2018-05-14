@@ -14,6 +14,13 @@
   \expandafter\btxselectlanguage\expandafter {\btxfallbacklanguage}
 
 \expandafter\btxselectlanguage\expandafter {\btxfallbacklanguage}
+\bibitem [{Cat74}]{catmull1974subdivision}
+\btxnamefont {Edwin \btxlastnamefont {Catmull}}\btxauthorcolon\ \btxtitlefont
+  {\btxifchangecase {A subdivision algorithm for computer display of curved
+  surfaces}{A subdivision algorithm for computer display of curved surfaces}}.
+\newblock \btxtechreplong {}, UTAH UNIV SALT LAKE CITY SCHOOL OF COMPUTING,
+  1974.
+
 \bibitem [{CGG{\etalchar{+}}03}]{10.1007/978-3-540-40014-1_3}
 \btxnamefont {Paolo \btxlastnamefont {Cignoni}}, \btxnamefont {Fabio
   \btxlastnamefont {Ganovelli}}, \btxnamefont {Enrico \btxlastnamefont
@@ -45,6 +52,58 @@
   York, NY, USA, 2009. \btxpublisherfont {ACM}\ifbtxprintISBN {,
   \mbox{\btxISBN~\btxISBNfont {978-1-60558-429-4}}}.
 \newblock {\latintext \btxurlfont{http://doi.acm.org/10.1145/1507149.1507152}}.
+
+\bibitem [{Dac17}]{CompGraphics:2017:04:TexMap}
+\btxnamefont {Prof.\btxfnamespacelong Dr.\btxfnamespacelong
+  Ing.\btxfnamespacelong Carsten \btxlastnamefont
+  {Dachsbacher}}\btxauthorcolon\ \btxjtitlefont {\btxifchangecase {Kapitel 4:
+  Texture mapping}{Kapitel 4: Texture Mapping}}.
+\newblock 2017.
+
+\bibitem [{Eul08}]{Euler:VirtualMemoryHistory:2008}
+\btxtitlefont {\btxifchangecase {Some history about virtual memory}{Some
+  History about Virtual Memory}}.
+\newblock \url{http://euler.vcsu.edu:7000/14315/}, 2008.
+\newblock Accessed: 2018-05-14.
+
+\bibitem [{GM05}]{Gobbetti:2005:FVM:1073204.1073277}
+\btxnamefont {Enrico \btxlastnamefont {Gobbetti}} \btxandlong {}\ \btxnamefont
+  {Fabio \btxlastnamefont {Marton}}\btxauthorcolon\ \btxjtitlefont
+  {\btxifchangecase {Far voxels: A multiresolution framework for interactive
+  rendering of huge complex 3d models on commodity graphics platforms}{Far
+  Voxels: A Multiresolution Framework for Interactive Rendering of Huge Complex
+  3D Models on Commodity Graphics Platforms}}.
+\newblock \btxjournalfont {ACM Trans. Graph.}, 24(3):878--885,
+  \btxprintmonthyear{.}{7}{2005}{long}\ifbtxprintISSN {,
+  \mbox{\btxISSN~\btxISSNfont {0730-0301}}}.
+\newblock {\latintext \btxurlfont{http://doi.acm.org/10.1145/1073204.1073277}}.
+
+\bibitem [{Mic17}]{Microsoft:GPUVirtualMemory:2017}
+\btxtitlefont {\btxifchangecase {Gpu virtual memory in wddm 2.0}{GPU virtual
+  memory in WDDM 2.0}}.
+\newblock
+  \url{https://docs.microsoft.com/en-us/windows-hardware/drivers/display/gpu-virtual-memory-in-wddm-2-0},
+  2017.
+\newblock Accessed: 2018-05-14.
+
+\bibitem [{PCM18}]{PCMag:DefMipMapping:2017}
+\btxtitlefont {\btxifchangecase {Level of detail (lod)}{Level of Detail
+  (LOD)}}.
+\newblock \url{https://www.pcmag.com/encyclopedia/term/47078/mip-mapping},
+  2018.
+\newblock Accessed: 2018-05-14.
+
+\bibitem [{Tex}]{TextMapExample}
+\btxtitlefont {\btxifchangecase {texture map - computer definition}{texture map
+  - Computer Definition}}.
+\newblock \url{http://www.yourdictionary.com/texture-map}.
+\newblock Accessed: 2018-05-14.
+
+\bibitem [{Uni17}]{Unity:LevelOfDetail:2017}
+\btxtitlefont {\btxifchangecase {Level of detail (lod)}{Level of Detail
+  (LOD)}}.
+\newblock \url{https://docs.unity3d.com/Manual/LevelOfDetail.html}, 2017.
+\newblock Accessed: 2018-05-14.
 
 \bibitem [{VW09}]{van2009id}
 \btxnamefont {JMP \btxlastnamefont {Van~Waveren}}\btxauthorcolon\

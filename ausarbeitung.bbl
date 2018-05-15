@@ -14,6 +14,13 @@
   \expandafter\btxselectlanguage\expandafter {\btxfallbacklanguage}
 
 \expandafter\btxselectlanguage\expandafter {\btxfallbacklanguage}
+\bibitem [{Bej}]{Bej:OpenGLEx}
+\btxnamefont {Andres \btxlastnamefont {Bejarano}}\btxauthorcolon\ \btxtitlefont
+  {\btxifchangecase {Opengl examples}{OpenGL Examples}}.
+\newblock
+  \url{https://www.cs.purdue.edu/homes/abejara/courses/cs334/index.html}.
+\newblock Accessed: 2018-05-15.
+
 \bibitem [{Cat74}]{catmull1974subdivision}
 \btxnamefont {Edwin \btxlastnamefont {Catmull}}\btxauthorcolon\ \btxtitlefont
   {\btxifchangecase {A subdivision algorithm for computer display of curved
@@ -78,12 +85,18 @@
   \mbox{\btxISSN~\btxISSNfont {0730-0301}}}.
 \newblock {\latintext \btxurlfont{http://doi.acm.org/10.1145/1073204.1073277}}.
 
-\bibitem [{Mic17}]{Microsoft:GPUVirtualMemory:2017}
+\bibitem [{Ing}]{Ing:VoxPeop}
+\btxnamefont {\btxlastnamefont {Ingen}}\btxauthorcolon\ \btxtitlefont
+  {\btxifchangecase {Voxel people}{Voxel People}}.
+\newblock \url{https://cartrdge.com/zmei/voxel-people}.
+\newblock Accessed: 2018-05-15.
+
+\bibitem [{Mic18}]{Microsoft:GPUVirtualMemory:2017}
 \btxtitlefont {\btxifchangecase {Gpu virtual memory in wddm 2.0}{GPU virtual
   memory in WDDM 2.0}}.
 \newblock
-  \url{https://docs.microsoft.com/en-us/windows-hardware/drivers/display/gpu-virtual-memory-in-wddm-2-0},
-  2017.
+  \url{https://docs.microsoft.com/en-us/windows-hardware/drivers/display/gpu-virtual-memory-in-W},
+  2018.
 \newblock Accessed: 2018-05-14.
 
 \bibitem [{PCM18}]{PCMag:DefMipMapping:2017}
@@ -92,6 +105,12 @@
 \newblock \url{https://www.pcmag.com/encyclopedia/term/47078/mip-mapping},
   2018.
 \newblock Accessed: 2018-05-14.
+
+\bibitem [{Tec}]{TechICT:VirtualMemory}
+\btxtitlefont {\btxifchangecase {7. virtual memory}{7. Virtual memory}}.
+\newblock
+  \url{http://www.teach-ict.com/2016/GCSE_Computing/AQA_8520/3_4_computer_systems/344_systems_architecture/memory/miniweb/pg7.htm}.
+\newblock Accessed: 2018-05-15.
 
 \bibitem [{Tex}]{TextMapExample}
 \btxtitlefont {\btxifchangecase {texture map - computer definition}{texture map

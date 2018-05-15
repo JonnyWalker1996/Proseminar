@@ -28,7 +28,7 @@ Texture mapping provides a way of adding detail to rendered surfaces without inc
     \includegraphics[width=.3\textwidth]{logos/texture_mapping_example.png}
     \hfill
     \includegraphics[width=.5\textwidth]{logos/texture_coordinates_example.png}
-    \caption{A texture is mapped onto the table model, making it more realistic. Images from \cite{TextMapExample} and \cite{CompGraphics:2017:04:TexMap}}
+    \caption{Left: A texture is mapped onto the table model, making it more realistic. Right: 3D points are translated to texture coordintates to determine vertex color. Images from \cite{TextMapExample} and \cite{CompGraphics:2017:04:TexMap}}
   \end{center}
 \end{figure}
 
@@ -70,24 +70,73 @@ Level of Detail addresses the issue of increasing scene complexity as the viewpo
 \label{ch:MainContent}
 
 \section{Memory Management}
-%% ==============
-Here I will talk about ways to utilize slow external memory to be able to store large datasets without losing wanted performance. I will refer to voxels, virtual paging and other techniques.
+
+This section covers ways to utilize slow external memory to be able to store large datasets without losing wanted performance.
+
+Once datasets reach a certain size it simply becomes impossible for them to be held inside the graphics card's main memory. This implies the need for using slower storage devices to reach sufficient capacity. However, simply separating the dataset in question into chunks small enough to be completely loaded into working memory leads to a worst case performance bad enough to prohibit real time performance. In conclusion, \textit{intelligent data streaming} has to be used to ensure having all needed data at hand without significant performance losses \cite{Crassin:2009:GRS:1507149.1507152}. The trade-off to consider here is transferring as little data as possible at a time to minimize processing delays on the one hand and keeping the number of necessary data transfers at a minimum on the other hand. A number of approaches to solve this issue have been developed.
+
+A rather simple solution to extending the available memory is to transfer the idea of virtual pages and physical frames used by operating systems into the given context. 
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=.3\textwidth]{logos/virtual_memory_concept.png}
+    \caption{RAM is extended with part of the hard disk. Data is streamed to the RAM on demand, being exchanged for less used data. Image from \cite{TechICT:VirtualMemory}}
+  \end{center}
+\end{figure}
+
+This introduces a small unit of data chunk that can be loaded into working memory on demand rather quickly. Furthermore, replacement strategies known from the operating system context can also be used, ensuring that often used data is kept in the graphics card memory as much as possible. However, for very large virtual textures even these small chunks lead to physical memory oversubscription. This, in turn, causes page thrashing which results in new frames being processed at a high latency \cite{van2009id}. As most datasets requiring Out-of-Core techniques have comparable texture sizes, this approach is not sufficient.
+
+A more sophisticated approach is to continuously monitor the physical space demand and reduce some portions of information if the graphics card memory capacity is exceeded. For this, both a policy of portioning the data and a strategy for determining which piece of information should be compressed need to be formed. The portioning can be achieved by \textit{tiling}, i.e. cutting the virtual texture into many small tiles of equal size. In general, Level of Detail is used for determining which texture tiles can be swapped and can, for example, be combined with mip-mapping \cite{Crassin:2009:GRS:1507149.1507152}. For instance, as the viewer moves away from the scene more texels move into view and therefore have to be loaded. However, the pixel footprint of the texels that are already loaded becomes smaller. This means that less detail is required and the relevant parts of the texture can be replaced with lower-resolution versions if memory becomes scarce. This solution provides a rendering algorithm that is able to adapt to changing memory demands while limiting performance loss. Details about the storage of textures and update policies will be discussed in the examples.
 
 \section{Voxels}
 
-Here I will give a detailed overview of the concept of voxels. I will talk about their differences to texels, advantages, challenges and their suitability for out of core processes.
+This section gives a detailed overview of the concept of voxels. It outlines their differences to texels, advantages, challenges and their suitability for out of core processes.
+
+The term \textit{voxel} firstly differs from the texel in that its prefix is taken from the word ``volume'' rather than ``texture''. Thus, it does not stand for a 2-dimensional element of a flat texture but makes up part of a 3-dimensional texture volume. Analogous to a texel having the shape of a square, a voxel is cubic.
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=.4\textwidth]{logos/texel_textured_cube.png}
+    \hfill
+    \includegraphics[width=.44\textwidth]{logos/voxel_textured_cube.png}
+    \caption{Left: A cube textured with a texture made up of texels. Right: A cube textured with a texture made up of voxels. Images from \cite{Bej:OpenGLEx} and \cite{Ing:VoxPeop}}
+  \end{center}
+\end{figure}
+
+Obviously, a voxel requires much more memory space than an equal-sided texel would. This is why the use of voxels only became a realistic option for commodity hardware with the conception of Out-of-Core techniques. As rendering of voxels is very costly, some optimizations have to be made in order to make them a viable option. The probably most important thing to note is that not the whole texture volume looked at has to be in memory. For instance, voxels that are fully covered by opaque voxels in front of them are not visible anyway and can therefore be ignored while processing the frame.
+
+As can be seen in figure 4.2, a huge advantage of using voxels is that compared to texels it allows a whole other dimension of detail to be displayed using the same level of object complexity. Another advantage of voxels is their regular structure. This facilitates the solution of aliasing problems that would be hard to handle using 2-dimensional textures \cite{Crassin:2009:GRS:1507149.1507152}. \cite{Gobbetti:2005:FVM:1073204.1073277} wrote about a fully adaptive technique for rendering very detailed scenes whose textures are made up of voxels and named it ``Far Voxels''.
 
 \section{Example 1: GigaVoxels}
-%% ==============
-Here I will use the discussed concepts to explain how GigaVoxels can be used to render large volumetric datasets with high performance. I will explain how this is related to both voxels and out of core processes.
+
+This section uses the discussed concepts to explain how GigaVoxels can be used to render large volumetric datasets with high performance. It will explain how this is related to both voxels and out of core processes.
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=.4\textwidth]{logos/gigavoxels_structure.png}
+    \caption{Illustration of relation between the tree structure and brick detail. Image from \cite{Crassin:2009:GRS:1507149.1507152}}
+  \end{center}
+\end{figure}
+
+\cite{Crassin:2009:GRS:1507149.1507152} came up with a structure that allows for interactive to real-time rendering of scenes with resolutions of 16384\textsuperscript{3} and higher. They also further increase detail by making use of procedural methods. One building unit of the algorithm they conceived are \textit{bricks}, which are small 3-dimensional grids of voxels approximating the part of the texture they represent. To get to the data needed for a specific part of the scene, they build and traverse an octree that stores pointers to such bricks inside its nodes or simply constants to indicate empty space. All loaded bricks of the scene are stored in the graphics card memory. However, this may exlude some bricks invisible due to being outside the view frustum or simply being covered - pointers to these bricks are invalidated. 
+
+When the viewpoint changes, unavailable bricks are loaded on demand and level of detail of each loaded brick is adjusted as appropriate and needed in order to not oversubscribe memory. This adjustment is made exploiting the special structure of the octree: as the wanted mip-map level is searched, lower mip-map levels are passed in ascending order. This enables one to use them in calculations made to create a smooth transition between different tree configurations. If a missing brick is encountered during ray marching, the Z-buffer is used to block further execution along that ray until the required brick is loaded. In order to be able to continue execution from the last state, status information of the blocked ray is saved in a compressed format and communicated to the CPU.
+
+By preferring higher mip-map levels over missing bricks of the same section, they finally introduce a moderate level of approximation to limit slow data transfer to an extent at which the promised interactiveness can be achieved.
 
 \section{Example 2: ID Tech 5 Challenges}
-Here I will discuss in detail how out of core rendering is compatible with parallelization using the ID Tech 5 Challenges example. I will talk about the faced challenges and how they were solved. 
 
-\section{Example 3: Visualization of very large Landscapes}
-Here I will summarize the findings from \cite{10.1007/978-3-540-40014-1_3}. I will refer to multi-resolution algorithms and how they are related to the topic.
+This section discusses in detail how out of core rendering is compatible with parallelization using the ID Tech 5 Challenges example. It summarizes the faced challenges and how they were solved. 
+
+\cite{van2009id} decided against using conventional virtual paging, because their textures with a side length of 1024 pages would have led to inacceptable performance due to thrashing. Instead, they went for the level of detail approach. With their solution, texture tiles becoming more detailed are upsampled first; further detail only starts being loaded after the higher-resolution tile has been acquired in the background.
+
+As a frame of the scene would have required 38 milliseconds to be rendered at the required quality as opposed to a maximum available rendering time of 16 milliseconds in order to achieve 60 frames per second, parallelization became a necessity. Therefore, they developed a very invasive but highly scalable job processing system. Jobs are designed to never stall execution, be completely independent of other jobs and always complete - thus minimizing processing delays and bottlenecks.
+
+The id Software team's approach shows that Out-of-Core techniques are indeed compatible with parallelization and therefore suited for future development as parallel programming becomes more and more crucial.
 
 \chapter{Epilogue}
 \label{ch:Epilogue}
 
-Here I will outline how out of core techniques can be used to develop new ways of data provision and rendering scenes in the future. 
+As demonstrated, Out-of-Core techniques offer a very promising way of utilizing commodity graphics cards' potential in order to reach a renderable scene complexity far beyond what would be possible otherwise. 
+
+A possible future step would be to elaborate on \cite{10.1007/978-3-540-40014-1_3}'s approach and exploit the next generations of graphics cards to create an even more realistic and immersive virtual reality experience. Also, further compression of output data representation and better prediction of occlusion and visibility events would be topics worth looking into \cite{Gobbetti:2005:FVM:1073204.1073277}.

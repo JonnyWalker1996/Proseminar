@@ -92,7 +92,7 @@ A more sophisticated approach is to continuously monitor the physical space dema
 
 This section gives a detailed overview of the concept of voxels. It outlines their differences to texels, advantages, challenges and their suitability for out of core processes.
 
-The term \textit{voxel} firstly differs from the texel in that its prefix is taken from the word ``volume'' rather than ``texture''. Thus, it does not stand for a 2-dimensional element of a flat texture but makes up part of a 3-dimensional texture volume. Analogous to a texel having the shape of a square, a voxel is cubic.
+The term \textit{voxel} firstly differs from the texel in that its prefix is taken from the word ``volume'' rather than ``texture''. Thus, it does not stand for a 2-dimensional element of a flat texture but makes up part of a 3-dimensional texture volume. Analogous to a texel often having the shape of a square, a voxel can, but does not have to be cubic.
 
 \begin{figure}[h]
   \begin{center}
@@ -103,9 +103,9 @@ The term \textit{voxel} firstly differs from the texel in that its prefix is tak
   \end{center}
 \end{figure}
 
-Obviously, a voxel requires much more memory space than an equal-sided texel would. This is why the use of voxels only became a realistic option for commodity hardware with the conception of Out-of-Core techniques. As rendering of voxels is very costly, some optimizations have to be made in order to make them a viable option. The probably most important thing to note is that not the whole texture volume looked at has to be in memory. For instance, voxels that are fully covered by opaque voxels in front of them are not visible anyway and can therefore be ignored while processing the frame.
+Obviously, a 3-dimensional object made up of voxels requires much more memory space than the 2-dimensional projection of that object using equal-sided texels would. This is why the use of voxels at a reasonable resolution only became a realistic option for commodity hardware with the conception of Out-of-Core techniques. As rendering of voxels is very costly, some optimizations have to be made in order to make them a viable option. The probably most important thing to note is that not the whole texture volume looked at has to be in memory. For instance, voxels that are fully covered by opaque voxels in front of them are not visible anyway and can therefore be ignored while processing the frame.
 
-As can be seen in figure 4.2, a huge advantage of using voxels is that compared to texels it allows a whole other dimension of detail to be displayed using the same level of object complexity. Another advantage of voxels is their regular structure. This facilitates the solution of aliasing problems that would be hard to handle using 2-dimensional textures \cite{Crassin:2009:GRS:1507149.1507152}. \cite{Gobbetti:2005:FVM:1073204.1073277} wrote about a fully adaptive technique for rendering very detailed scenes whose textures are made up of voxels and named it ``Far Voxels''.
+As can be seen in figure 4.2, a huge advantage of using voxels is that compared to texels it allows a whole other dimension of detail to be displayed using the same level of object complexity. Voxels also have the very simple advantage of being capable of modeling terrains with overhanging cliffs or caves which is impossible using height maps. Voxels can be rendered as points, for instance in 3-dimensional scanning where they form point clouds.	With a sufficient number of samples making up one of those point clouds, voxels make it possible to generate virtual solid objects without requiring precomputed model made up of triangles. Another advantage of voxels is their regular structure. This facilitates the solution of aliasing problems that would be hard to handle using triangulated models \cite{Crassin:2009:GRS:1507149.1507152}. \cite{Gobbetti:2005:FVM:1073204.1073277} wrote about a fully adaptive technique for rendering very detailed scenes whose textures are made up of voxels and named it ``Far Voxels''.
 
 \section{Example 1: GigaVoxels}
 

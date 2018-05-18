@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.29)  15 MAY 2018 21:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.29)  17 MAY 2018 20:04
 entering extended mode
 **./ausarbeitung.tex
 (ausarbeitung.tex
@@ -1483,13 +1483,13 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 127.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 132.
+(babel)             in language  on input line 130.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 132.
+(babel)             in language  on input line 130.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 132.
+(babel)             in language  on input line 130.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 132.
+(babel)             in language  on input line 130.
  [8 <./logos/gigavoxels_structure.png>]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 137.
@@ -1630,7 +1630,7 @@ lic/lm/lmro10.pfb><C:/Users/Jonat/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
 /type1/public/lm/lmtt10.pfb><C:/Users/Jonat/AppData/Local/Programs/MiKTeX 2.9/f
 onts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/Jonat/AppData/Local/Programs/MiKTe
 X 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on ausarbeitung.pdf (15 pages, 3658892 bytes).
+Output written on ausarbeitung.pdf (15 pages, 3659311 bytes).
 PDF statistics:
  292 PDF objects out of 1000 (max. 8388607)
  54 named destinations out of 1000 (max. 500000)

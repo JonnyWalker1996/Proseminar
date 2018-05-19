@@ -91,6 +91,14 @@
 \newblock \url{https://cartrdge.com/zmei/voxel-people}.
 \newblock Accessed: 2018-05-15.
 
+\bibitem [{LK11}]{laine2011efficient}
+\btxnamefont {Samuli \btxlastnamefont {Laine}} \btxandlong {}\ \btxnamefont
+  {Tero \btxlastnamefont {Karras}}\btxauthorcolon\ \btxjtitlefont
+  {\btxifchangecase {Efficient sparse voxel octrees}{Efficient sparse voxel
+  octrees}}.
+\newblock \btxjournalfont {IEEE Transactions on Visualization and Computer
+  Graphics}, 17(8):1048--1059, 2011.
+
 \bibitem [{Mic18}]{Microsoft:GPUVirtualMemory:2017}
 \btxtitlefont {\btxifchangecase {Gpu virtual memory in wddm 2.0}{GPU virtual
   memory in WDDM 2.0}}.
@@ -131,5 +139,11 @@
   virtualization to massive parallelization}}.
 \newblock \btxjournalfont {Talk in Beyond Programmable Shading course,
   SIGGRAPH}, 9:5, 2009.
+
+\bibitem [{Wik}]{Wiki:Octree}
+\btxnamefont {\btxlastnamefont {Wikipedia}}\btxauthorcolon\ \btxtitlefont
+  {\btxifchangecase {Octree}{Octree}}.
+\newblock \url{https://en.wikipedia.org/wiki/Octree}.
+\newblock Accessed: 2018-05-19.
 
 \end{thebibliography}

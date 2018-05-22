@@ -11,7 +11,7 @@
 \contentsline {section}{\numberline {4.2}Voxels}{7}{section.4.2}
 \contentsline {section}{\numberline {4.3}Voxel-based Octrees}{8}{section.4.3}
 \contentsline {section}{\numberline {4.4}Example 1: GigaVoxels}{9}{section.4.4}
-\contentsline {section}{\numberline {4.5}Example 2: ID Tech 5 Challenges}{9}{section.4.5}
+\contentsline {section}{\numberline {4.5}Example 2: ID Tech 5 Challenges}{10}{section.4.5}
 \contentsline {chapter}{\numberline {5}Epilogue}{11}{chapter.5}
 \contentsline {chapter}{Literaturverzeichnis}{12}{section*.2}
 \babel@toc {ngerman}{}

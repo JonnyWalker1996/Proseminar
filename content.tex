@@ -135,7 +135,7 @@ This section uses the discussed concepts to explain how GigaVoxels can be used t
   \end{center}
 \end{figure}
 
-\cite{Crassin:2009:GRS:1507149.1507152} came up with a structure that allows for interactive to real-time rendering of scenes with resolutions of 16384\textsuperscript{3} and higher. They also further increase detail by making use of procedural methods. One building unit of the algorithm they conceived are \textit{bricks}, which are small 3-dimensional grids of voxels approximating the part of the texture they represent. To get to the data needed for a specific part of the scene, they build and traverse an octree that stores pointers to such bricks inside its nodes or simply constants to indicate empty space. All loaded bricks of the scene are stored in the graphics card memory. However, this may exlude some bricks invisible due to being outside the view frustum or simply being covered - pointers to these bricks are invalidated. 
+\cite{Crassin:2009:GRS:1507149.1507152} came up with a structure that allows for interactive to real-time rendering of scenes with resolutions of 16384\textsuperscript{3} and higher. They also further increase detail by making use of procedural methods. One building unit of the algorithm they conceived are \textit{bricks}, which are small 3-dimensional grids of voxels approximating the part of the texture they represent. To get to the data needed for a specific part of the scene, they build and traverse a voxel-based octree that stores pointers to such bricks inside its nodes or simply constants to indicate empty space. This is an enhancement compared to the structure proposed in the section about voxel-based octrees as not all of the pointers have to point to valid data chunks and therefore not the complete scene has to be loaded at any one time. All loaded bricks of the scene are stored in the graphics card memory. However, this may exlude some bricks invisible due to being outside the view frustum or simply being covered - pointers to these bricks are invalidated. 
 
 When the viewpoint changes, unavailable bricks are loaded on demand and level of detail of each loaded brick is adjusted as appropriate and needed in order to not oversubscribe memory. This adjustment is made exploiting the special structure of the octree: as the wanted mip-map level is searched, lower mip-map levels are passed in ascending order. This enables one to use them in calculations made to create a smooth transition between different tree configurations. If a missing brick is encountered during ray marching, the Z-buffer is used to block further execution along that ray until the required brick is loaded. In order to be able to continue execution from the last state, status information of the blocked ray is saved in a compressed format and communicated to the CPU.
 
@@ -147,7 +147,16 @@ This section discusses in detail how out of core rendering is compatible with pa
 
 \cite{van2009id} decided against using conventional virtual paging, because their textures with a side length of 1024 pages would have led to inacceptable performance due to thrashing. Instead, they went for the level of detail approach. With their solution, texture tiles becoming more detailed are upsampled first; further detail only starts being loaded after the higher-resolution tile has been acquired in the background.
 
-As a frame of the scene would have required 38 milliseconds to be rendered at the required quality as opposed to a maximum available rendering time of 16 milliseconds in order to achieve 60 frames per second, parallelization became a necessity. Therefore, they developed a very invasive but highly scalable job processing system. Jobs are designed to never stall execution, be completely independent of other jobs and always complete - thus minimizing processing delays and bottlenecks.
+As a frame of the scene would have required 38 milliseconds to be rendered at the required quality as opposed to a maximum available rendering time of 16 milliseconds in order to achieve 60 frames per second, parallelization became a necessity. Therefore, they developed a very invasive but highly scalable job processing system. In this system, several phases are defined for each aspect of scene rendering - each jobs part of each succeeding phase depends on jobs part of the preceding phase. Not all dependencies could be eliminated. As a consequence, the developers decided to allow for job results to be returned one frame late, effectively giving each job pipeline two frame times to complete. While this decision required modifying algorithms that depend on up-to-date data as input, the result is obviously still very promising.
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=.4\textwidth]{logos/id_tech_5_1.png}
+    \hfill
+    \includegraphics[width=.4\textwidth]{logos/id_tech_5_2.png}
+    \caption{Example images generated using the ID Tech 5 engine. Images from \cite{van2009id}}
+  \end{center}
+\end{figure}
 
 The id Software team's approach shows that Out-of-Core techniques are indeed compatible with parallelization and therefore suited for future development as parallel programming becomes more and more crucial.
 
